@@ -5,7 +5,8 @@ using MessageSenderQuestions.Senders;
 
 string message = args[0];
 string senderType = args[1];
-IMessageSender sender = new SenderFactory().CreateMessageSender(senderType);
+var senderFactory = new SenderFactory();
+IMessageSender sender = senderFactory.CreateMessageSender(senderType);
 await sender.SendAsync(message);
 
 
